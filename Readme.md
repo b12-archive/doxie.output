@@ -30,6 +30,24 @@ doxie.output
 
 
 
+<p align="center"><a
+  title="Graphic by the great Justin Mezzell"
+  href="http://justinmezzell.tumblr.com/post/120437661043"
+  >
+  <br/>
+  <br/>
+  <img
+    src="Readme/Telescope.gif"
+    width="400"
+    height="300"
+  />
+  <br/>
+  <br/>
+</a></p>
+
+
+
+
 Installation
 ------------
 
