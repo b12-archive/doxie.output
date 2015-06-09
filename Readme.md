@@ -32,12 +32,12 @@ doxie.output
 
 <p align="center"><a
   title="Graphic by the great Justin Mezzell"
-  href="http://justinmezzell.tumblr.com/post/120437661043"
+  href="http://justinmezzell.tumblr.com/post/91485763723"
   >
   <br/>
   <br/>
   <img
-    src="Readme/Telescope.gif"
+    src="Readme/Projector.gif"
     width="400"
     height="300"
   />
