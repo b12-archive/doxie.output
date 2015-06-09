@@ -17,15 +17,15 @@
 
 
 
-doxie.output
-============
+<h1                                                                 id="/"><pre>
+doxie --output
+</pre></h1>
 
-**A plugin for doxie. Output comments as a string.**
 
+A plugin for *[doxie][]*.  
+**Output comments as a string.**
 
-**⚠ Heads up!** This is totally a work in progress. [Thoughts and ideas][] are very welcome.
-
-[Thoughts and ideas]:  https://github.com/studio-b12/doxie.output/issues
+[doxie]:  https://github.com/studio-b12/doxie
 
 
 
@@ -48,20 +48,78 @@ doxie.output
 
 
 
-Installation
-------------
+CLI Usage
+---------
+
+`doxie --output` is a plugin for the command-line tool *[doxie][]*. Most plugins are designed for *[dox][]* data. Install all three if you haven’t already:
 
 ```sh
-$ npm install doxie.output
+$ npm install --global dox doxie doxie.output
 ```
 
 
+Pass the option `--output` to *doxie* to put it in the plugin pipeline. Most likely you’ll want it listed last. I’m including [`--drop`][] and [`--render`][] to show this.
+
+```sh
+$ dox | doxie --drop @private --render --output
+
+My first function
+-----------------
+
+Does awesome things.
+
+###  Parameters:  ###
+none.
+
+###  Return value:  ###
+* {Number} – the awesomeness factor
 
 
-Usage
------
+My second function
+-----------------
 
-…
+<!-- … -->
+```
+
+
+[dox]:         http://npm.im/dox
+[`--drop`]:    http://npm.im/doxie.drop
+[`--render`]:  http://npm.im/doxie.render
+
+
+
+
+Programmatic usage
+------------------
+
+`doxie.output` can be used directly with *[doxie-core][]* – the backend of *[doxie][]*. Install both if you haven’t already:
+
+```sh
+$ npm install doxie-core doxie.output
+```
+
+
+Call `doxie.output` without parameters to get the plugin function:
+
+```js
+const doxie = require('doxie-core');
+const output = require('doxie.drop');
+const render = require('doxie.render');
+const output = require('doxie.output');
+
+const myTemplate = ({data}) => /* … */;
+const myDoxData = {/* … */};
+
+doxie([
+  drop({'@private': true}),
+  render(myTemplate),
+  output(),
+])(myDoxData).output;
+//» "\nMy first function\n-----------------\n\nDoes awesome things.\n\n###  Par…
+```
+
+
+[doxie-core]:  http://npm.im/doxie-core
 
 
 
