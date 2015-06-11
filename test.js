@@ -1,1 +1,1 @@
-import './test/index';
+import './test/index.test';
