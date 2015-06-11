@@ -1,5 +1,5 @@
 { "name": "doxie.output"
-, "version": "0.1.0"
+, "version": "0.1.1"
 , "description": "A plugin for doxie. Output comments as a string."
 
 , "dependencies":
