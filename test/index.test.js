@@ -94,40 +94,49 @@ test(title('Doesn’t break other plugins.'), (is) => {
   is.end();
 });
 
-test(title('Is helpful when things go wrong.'), (is) => {
+test(title('Prints helpful messages things go wrong.'), (is) => {
   const chunks = [];
 
   is.ok(
-    /unexpected results/i.test(
+    /results .*unexpected/i.test(
       output({chunks, version: '1'}).error
     ),
-    'printing a helpful message when the version isn’t a number'
+    'when the version isn’t a number'
   );
 
   is.ok(
-    /unexpected results/i.test(
+    /results .*unexpected/i.test(
       output({chunks, version: '1'}).error
     ),
-    'printing a helpful message when the version isn’t `1`'
+    'when the version isn’t `1`'
   );
 
   is.ok(
-    /output is empty/i.test(
+    /output .*empty/i.test(
       output({chunks: [
         {data: {}},
       ]}).error
     ),
-    'printing a helpful message when no chunks produce output'
+    'when no chunks produce output'
   );
 
   is.ok(
-    /output is empty/i.test(
+    /output .*empty/i.test(
       output({chunks: [
         {output: null},
         {output: ''},
       ]}).error
     ),
-    'printing a helpful message when chunks produce empty output'
+    'when chunks produce empty output'
+  );
+
+  is.equal(
+    output({
+      chunks: [{output: 'ok'}],
+      version: 1,
+    }).error,
+    null,
+    'returning a `null` error otherwise'
   );
 
   is.end();
