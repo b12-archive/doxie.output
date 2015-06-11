@@ -94,4 +94,41 @@ test(title('Doesn’t break other plugins.'), (is) => {
   is.end();
 });
 
-test.skip('Is helpful when things go wrong.');  // TODO
+test(title('Is helpful when things go wrong.'), (is) => {
+  const chunks = [];
+
+  is.ok(
+    /unexpected results/i.test(
+      output({chunks, version: '1'}).error
+    ),
+    'printing a helpful message when the version isn’t a number'
+  );
+
+  is.ok(
+    /unexpected results/i.test(
+      output({chunks, version: '1'}).error
+    ),
+    'printing a helpful message when the version isn’t `1`'
+  );
+
+  is.ok(
+    /output is empty/i.test(
+      output({chunks: [
+        {data: {}},
+      ]}).error
+    ),
+    'printing a helpful message when no chunks produce output'
+  );
+
+  is.ok(
+    /output is empty/i.test(
+      output({chunks: [
+        {output: null},
+        {output: ''},
+      ]}).error
+    ),
+    'printing a helpful message when chunks produce empty output'
+  );
+
+  is.end();
+});
