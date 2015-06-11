@@ -47,3 +47,29 @@ test(title('Concatenates chunk output.'), (is) => {
 
   is.end();
 });
+
+test(title('Doesn’t break other plugins.'), (is) => {
+  let chunks = [];
+
+  is.equal(
+    output({chunks}).chunks,
+    chunks,
+    'returning `.chunks` unchanged'
+  );
+
+  is.equal(
+    output({chunks, version: 1}).version,
+    1,
+    'passing on the `.version` `1`'
+  );
+
+  is.equal(
+    output({chunks}).version,
+    undefined,
+    'not defining a `.version` when it’s not there initially'
+  );
+
+  is.end();
+});
+
+test.skip('Is helpful when things go wrong.');  // TODO
