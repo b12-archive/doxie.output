@@ -18,7 +18,7 @@ export default (input) => {
   // * Check the output
   if (!output) errorMessages.push(warning(
     'Output is empty. Perhaps you’ve forgotten to render your comments? ' +
-    '<http://npm.im/doxie.template> might put you on the right track.'
+    '<http://npm.im/doxie.render> might put you on the right track.'
   ));
 
   // * Check the version
