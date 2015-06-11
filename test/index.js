@@ -45,6 +45,21 @@ test(title('Concatenates chunk output.'), (is) => {
     'casting other types to string'
   );
 
+  is.equal(
+    output({chunks: [
+      {},
+    ]}).output,
+    '',
+    'returns an empty string when no chunks produce output'
+  );
+
+  is.equal(
+    output({chunks: [
+    ]}).output,
+    '',
+    'returns an empty string when there are no chunks'
+  );
+
   is.end();
 });
 
@@ -61,6 +76,13 @@ test(title('Doesn’t break other plugins.'), (is) => {
     output({chunks, version: 1}).version,
     1,
     'passing on the `.version` `1`'
+  );
+
+  let incompatibleVersion = Symbol();
+  is.equal(
+    output({chunks, version: incompatibleVersion}).version,
+    incompatibleVersion,
+    'passing on an incompatible `.version`'
   );
 
   is.equal(
