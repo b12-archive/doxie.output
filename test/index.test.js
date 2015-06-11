@@ -1,6 +1,8 @@
 import output from '../module/index';
 
 const test = require('tape-catch');
+const symbol = require('es6-symbol');
+
 const title = require('1-liners/curry')(require('1-liners/plus'))(
   'Programmatic interface: '
 );
@@ -78,7 +80,7 @@ test(title('Doesn’t break other plugins.'), (is) => {
     'passing on the `.version` `1`'
   );
 
-  let incompatibleVersion = Symbol();
+  let incompatibleVersion = symbol();
   is.equal(
     output({chunks, version: incompatibleVersion}).version,
     incompatibleVersion,
