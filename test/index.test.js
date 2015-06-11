@@ -108,7 +108,7 @@ test(title('Prints helpful messages things go wrong.'), (is) => {
 
   is.ok(
     /results .*unexpected/i.test(
-      output({chunks, version: '1'}).error
+      output({chunks, version: 2}).error
     ),
     'when the version isn’t `1`'
   );
