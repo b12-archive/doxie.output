@@ -5,5 +5,8 @@ export default (input) => ({
     chunk.output == null ?
     output :
     output + chunk.output
-  ), '', input.chunks)
+  ), '', input.chunks),
+
+  version: input.version,
+  chunks: input.chunks,
 });
