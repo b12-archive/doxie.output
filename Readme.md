@@ -23,7 +23,7 @@ doxie --output
 
 
 A plugin for *[doxie][]*.  
-**Output comments as a string.**
+**Output rendered comments.**
 
 [doxie]:  https://github.com/studio-b12/doxie
 
