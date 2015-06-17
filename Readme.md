@@ -103,7 +103,7 @@ Call `doxie.output` without parameters to get the plugin function:
 
 ```js
 const doxie = require('doxie-core');
-const output = require('doxie.drop');
+const drop = require('doxie.drop');
 const render = require('doxie.render');
 const output = require('doxie.output');
 
