@@ -6,11 +6,11 @@ const warning = (warning) => `[doxie --output] Warning: ${warning}\n`;
 
 export default (input) => {
   // Determine the output.
-  const output = fold((output, chunk) => (
-    chunk.output == null ?
+  const output = fold((output, doc) => (
+    doc.output == null ?
     output :
-    output + chunk.output
-  ), '', input.chunks);
+    output + doc.output
+  ), '', input.docs);
 
   // Construct the error string:
   const errorMessages = [];

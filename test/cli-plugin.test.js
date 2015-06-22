@@ -7,7 +7,7 @@ const title = require('1-liners/curry')(require('1-liners/plus'))(
 
 test(title('Does what it’s supposed to'), (is) => {
   is.equal(
-    plugin()({chunks: [
+    plugin()({docs: [
       {output: 'abc'},
       {data: {}},
       {output: null},
